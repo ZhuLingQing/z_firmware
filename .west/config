@@ -1,0 +1,10 @@
+[manifest]
+path = manifest-repo
+file = west.yml
+
+[zephyr]
+base = zephyr
+
+[build]
+dir-fmt = build/{board}/{app}
+

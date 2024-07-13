@@ -1,0 +1,11 @@
+# STM32C031C6 Mini board configuration
+
+# Copyright (c) 2024 Thomas.Zhu
+# SPDX-License-Identifier: Apache-2.0
+
+if BOARD_TZHU_32C031C6
+
+config BOARD
+	default "tzhu_32c031c6"
+
+endif # BOARD_TZHU_32C031C6

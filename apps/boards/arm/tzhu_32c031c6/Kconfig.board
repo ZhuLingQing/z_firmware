@@ -1,0 +1,6 @@
+# Copyright (c) 2022 Thomas.Zhu
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_TZHU_32C031C6
+	bool "TZHU_32C031C6 Board"
+	depends on SOC_STM32C031XX

@@ -1,0 +1,13 @@
+manifest:
+  self:
+    path: manifest-repo
+
+  remotes:
+    - name: upstream
+      url-base: https://jihulab.com/qiaowen
+
+  projects:
+    - name: zoysia
+      remote: upstream
+      revision: master
+      import: true

@@ -1,0 +1,28 @@
+# Kconfig -- (c)2023-2024 Lightelligence, Inc.
+
+choice
+
+	prompt "Product selection"
+	default PROD_STM32F4_CB
+	help
+		Product selection.
+
+config PROD_YEHUO_103ZE
+	bool "Yehuo 103ze series"
+	help
+		Yehuo series.
+
+config PROD_STM32F4_CB
+	bool "STM32F4 Core Board"
+	help
+		STM32F4 Core Board.
+
+config PROD_TZHU_32C031C6
+	bool "TZHU_32C031C6"
+	help
+		TZHU 32C031C6 EVB.
+
+endchoice
+
+# source "$(APPLICATION_SOURCE_DIR)/drivers/Kconfig"
+source "Kconfig.zephyr"

@@ -1,0 +1,8 @@
+# STM32F411CEU6 Core board configuration
+
+# Copyright (c) 2024 Thomas.Zhu
+# SPDX-License-Identifier: Apache-2.0
+
+config BOARD_STM32F4_CB
+	bool "STM32F411CEUb Core board"
+	depends on SOC_STM32F411XX

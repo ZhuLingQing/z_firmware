@@ -1,0 +1,96 @@
+/*
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/dts-v1/;
+#include <st/f4/stm32f411Xe.dtsi>
+#include <st/f4/stm32f401c(d-e)ux-pinctrl.dtsi>
+#include <zephyr/dt-bindings/memory-attr/memory-attr.h>
+
+/ {
+	model = "STM32F411CEUb Core board";
+	compatible = "st,stm32f4_cb";
+
+	chosen {
+		zephyr,console = &usart1;
+		zephyr,shell-uart = &usart1;
+		zephyr,sram = &sram0;
+		zephyr,flash = &flash0;
+		// zephyr,dtcm = &dtcm;
+		// zephyr,itcm = &itcm;
+        // zephyr,code-partition = &code_partition;
+	};
+
+	leds {
+		compatible = "gpio-leds";
+		status = "okay";
+		led_0: led_0 { gpios = <&gpioc 13 GPIO_ACTIVE_LOW>; label = "LED_0"; };
+	};
+
+	gpio_keyss {
+		compatible = "gpio-keys";
+		status = "okay";
+		key_0: key_0 { gpios = <&gpioc 12 (GPIO_PULL_UP | GPIO_ACTIVE_LOW)>; label = "KEY_0"; };
+	};
+
+    aliases {
+		led0 = &led_0;
+		key0 = &key_0;
+	};
+};
+
+// &clk_hsi48 {
+// 	status = "okay";
+// };
+
+&clk_lse {
+	status = "okay";
+};
+
+&clk_hse {
+	clock-frequency = <DT_FREQ_M(25)>;
+	status = "okay";
+};
+
+&pll {
+	// div-m = <15>;
+	// mul-n = <144>;
+	// div-p = <2>;
+	// div-q = <5>;
+
+	div-m = <25>;
+	mul-n = <192>;
+	div-p = <2>;
+	div-q = <4>;
+
+	div-r = <2>;
+	clocks = <&clk_hse>;
+	status = "okay";
+};
+
+&rcc {
+	clocks = <&pll>;
+	clock-frequency = <DT_FREQ_M(96)>;
+	ahb-prescaler = <1>;
+	apb1-prescaler = <2>;
+	apb2-prescaler = <1>;
+	// d1cpre = <1>;
+	// hpre = <2>;
+	// d1ppre = <2>;
+	// d2ppre1 = <2>;
+	// d2ppre2 = <2>;
+	// d3ppre = <2>;
+};
+
+&usart1 {
+	pinctrl-0 = <&usart1_tx_pa9 &usart1_rx_pa10>;
+	pinctrl-names = "default";
+	current-speed = <115200>;
+	status = "okay";
+};
+
+zephyr_udc0: &usbotg_fs {
+	pinctrl-0 = <&usb_otg_fs_dm_pa11 &usb_otg_fs_dp_pa12>;
+	pinctrl-names = "default";
+	status = "okay";
+};

@@ -1,0 +1,18 @@
+identifier: yehuo_103ze
+name: Yehuo stm32f103ze Board
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 64
+flash: 512
+supported:
+  - gpio
+  - i2c
+  - spi
+  - pwm
+  - watchdog
+  - adc
+vendor: st

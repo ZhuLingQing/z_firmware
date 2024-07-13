@@ -1,0 +1,17 @@
+identifier: stm32f4_cb
+name: STM32F411CEU6 Core Board
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 128
+flash: 512
+supported:
+  - uart
+  - gpio
+  - adc
+  - spi
+  - usb
+vendor: st

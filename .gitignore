@@ -1,0 +1,9 @@
+bootloader
+modules
+tools
+zephyr
+zoysia
+apps/build
+.vscode/
+.venv/
+*.bak

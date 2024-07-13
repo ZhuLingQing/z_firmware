@@ -1,0 +1,18 @@
+identifier: tzhu_32c031c6
+name: ST Nucleo C031C6
+type: mcu
+arch: arm
+toolchain:
+  - zephyr
+  - gnuarmemb
+  - xtools
+ram: 12
+flash: 32
+supported:
+  - uart
+  - gpio
+  - i2c
+  - pwm
+  - watchdog
+  - adc
+vendor: st
